@@ -8,4 +8,7 @@ var schema = new Schema({
   timestamps: true
 })
 
+schema
+  .index({ title: 1 }, { unique: true })
+
 module.exports = mongoose.model('Genre', schema)

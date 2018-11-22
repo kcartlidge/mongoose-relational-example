@@ -9,7 +9,10 @@ var schema = new Schema({
 })
 
 schema
-  .virtual('book_count')
+  .index({ name: 1 }, { unique: true })
+
+schema
+  .virtual('bookQuantity')
   .get(function () {
     return this.books.length
   })

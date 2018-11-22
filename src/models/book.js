@@ -20,4 +20,7 @@ var schema = new Schema({
   timestamps: true
 })
 
+schema
+  .index({ author: 1, title: 1 }, { unique: true })
+
 module.exports = mongoose.model('Book', schema)
