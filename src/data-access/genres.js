@@ -3,7 +3,11 @@ const Genre = require('../models/genre')
 const m = {
   // List all genres with their books.
   all: async () => {
-    const data = await Genre.find({}).populate('books').sort({ title: 1 }).lean()
+    const data = await Genre.find({})
+      .populate('books')
+      .sort({ title: 1 })
+      .lean()
+    //   .explain('executionStats')
     return data
   }
 }
