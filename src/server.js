@@ -5,7 +5,7 @@ const handlers = require('./handlers')
 
 // Should be moved to the environment, but these are throwaway values.
 const port = 3000
-const conn = 'mongodb://books:...@....mlab.com:49372/books'
+const conn = 'mongodb://localhost/books'
 
 const app = express()
 app
