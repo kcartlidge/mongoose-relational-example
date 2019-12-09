@@ -9,6 +9,13 @@ Mongo (and Mongoose) backed API example.
     - editorconfig.editorconfig
     - dbaeumer.vscode-eslint
 
+## Note about the connection
+
+This is just example code, so whilst there is (for convenience) a hard-coded connection string in the main ```server.js``` it is random, not used elsewhere, and temporary.
+Either take similar precautions or move it to an environment variable (or similar).
+
+Obviously replace the connection string with one that works for you.
+
 ## Running the example
 
 Written with Node v12.13.1 (LTS).
