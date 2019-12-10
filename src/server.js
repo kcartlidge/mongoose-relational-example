@@ -11,6 +11,16 @@ const helmet = require('helmet')
 const port = 3000
 const conn = 'mongodb://books:ghsft5s67a6sfs6s76g@ds121716.mlab.com:21716/mongoose-relational-example'
 
+// Apply the brakes in an emergency.
+process.on('uncaughtException', e => {
+  console.log(e)
+  process.exit(1)
+})
+process.on('unhandledRejection', e => {
+  console.log(e)
+  process.exit(1)
+})
+
 const app = express()
 app
   .use(compression()) // gzip
