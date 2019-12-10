@@ -4,6 +4,8 @@ const debug = require('debug')('server')
 
 const db = require('./db')
 const handlers = require('./handlers')
+const compression = require('compression')
+const helmet = require('helmet')
 
 // Should be moved to the environment, but these are throwaway values.
 const port = 3000
@@ -11,6 +13,8 @@ const conn = 'mongodb://books:ghsft5s67a6sfs6s76g@ds121716.mlab.com:21716/mongoo
 
 const app = express()
 app
+  .use(compression()) // gzip
+  .use(helmet()) // headers
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
   .get('/', (req, res) => { res.send('Okay') })
