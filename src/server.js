@@ -1,5 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const debug = require('debug')('server')
+
 const db = require('./db')
 const handlers = require('./handlers')
 
@@ -16,15 +18,14 @@ app
   .get('/genres', handlers.getGenres)
   .get('/books', handlers.getBooks)
 
-console.log('RE-SEEDING THE DATA')
 db.init(conn)
 db.seed().then(() => {
-  console.log('STARTING THE SERVER')
+  debug('STARTING THE SERVER')
   app.listen(port, () => {
-    console.log(' - http://localhost:' + port)
-    console.log(' - http://localhost:' + port + '/books')
-    console.log(' - http://localhost:' + port + '/genres')
-    console.log(' - http://localhost:' + port + '/authors')
-    console.log('LISTENING ...')
+    debug(' - http://localhost:' + port)
+    debug(' - http://localhost:' + port + '/books')
+    debug(' - http://localhost:' + port + '/genres')
+    debug(' - http://localhost:' + port + '/authors')
+    debug('LISTENING ...')
   })
-}).catch((err) => { console.log('ERROR\n', err.message) })
+}).catch((err) => { debug.log('ERROR\n', err.message) })
