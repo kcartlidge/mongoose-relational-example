@@ -22,9 +22,13 @@ Written with Node v12.13.1 (LTS).
 
 ``` sh
 npm install     # pull dependencies
+
 npm start       # run the example
 npm run lint    # tidy up the 'src' folder code
 npm run watch   # run and restart on changes
+
+npm run build   # generate dist/api.js (for prod)
+npm run prod    # run last generated build
 ```
 
 Optionally, set a `debug` environment variable first:
@@ -41,8 +45,17 @@ Linux and MacOS:
 export debug=server,seeding && npm start
 ```
 
+## Production deploys
+
+- Don't use the full `npm install` on your production server, as that will also fetch all your dev dependencies even though they will not be needed. Instead do `npm i --production`.
+- Don't use the original source unless you are not compiling (use the `npm run prod` instead).
+
 ## Notes
 
 Dependencies for `es-lint` added via:
 
 - `npm i -D eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard`
+
+The `webpack` dependencies:
+
+- `npm i webpack webpack-cli --save-dev`

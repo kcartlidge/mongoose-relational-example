@@ -1,12 +1,14 @@
 {
   "name": "mongo-api",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "An example of Express using MongoDB as a relational document store.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "watch": "nodemon src/server.js",
     "lint": "eslint --fix src",
+    "build": "webpack",
+    "prod": "node dist/api.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,6 +31,8 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
